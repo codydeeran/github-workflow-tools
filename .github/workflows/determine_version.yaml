@@ -24,4 +24,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: Execute Determine Version Utility Script
-        run: python3 determine_version.py
+        run: |
+          source .venv/bin/activate
+          python3 determine_version.py
