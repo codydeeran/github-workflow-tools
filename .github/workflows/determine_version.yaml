@@ -18,6 +18,11 @@ jobs:
         with:
           token: ${{secrets.TOKEN}}
 
+      - name: Setup Git Config
+        run: |
+          git config --global user.name "Name"
+          git config --global user.email "example@email.com"
+
       - name: Install Dependencies
         run: |
           python3 -m pip install --upgrade pip
