@@ -89,13 +89,17 @@ def main(prefix: str, start_version: str) -> None:
     full_version, short_version, create_new_tag = determine_version(
         current_branch, latest_tag_number, github_build_number, prefix
     )
-    print(f"Updated Full Version: {full_version}")
-    print(f"Updated Short Version: {short_version}")
 
+    print(f"Updated Full Version: {full_version}")
     print(
-        f"Setting updated full version {full_version} to new_tag environment variable..."
+        f"Setting updated full version {full_version} to new_full_tag environment variable..."
     )
     os.system(f"echo 'new_full_tag={full_version}' >> $GITHUB_ENV")
+
+    print(f"Updated Short Version: {short_version}")
+    print(
+        f"Setting updated short version {full_version} to new_short_tag environment variable..."
+    )
     os.system(f"echo 'new_short_tag={short_version}' >> $GITHUB_ENV")
 
     if create_new_tag:
