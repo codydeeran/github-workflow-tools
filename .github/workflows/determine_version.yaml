@@ -1,6 +1,13 @@
 name: Determine Version
 
-on: workflow_call
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
 
 jobs:
   build:
